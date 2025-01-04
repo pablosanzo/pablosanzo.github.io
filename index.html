@@ -3,14 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Sanzo - Applied AI Product Engineer</title>
-    <link rel="icon" href="https://em-content.zobj.net/source/apple/391/books_1f4da.png" type="image/png">
+    <title>Pablo Sanzo</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Default desktop styles */
+        nav ul li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        /* Mobile styles */
+        @media only screen and (max-width: 768px), 
+               only screen and (hover: none) and (pointer: coarse) {
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        section {
+            display: none;
+            margin-top: 2rem;
+        }
+        section.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSwzoYD9H88cjUQ5YWcq5sWKcJ42K6s6txbK8N3d-DGGOkFBln9bLl9gDx2jfkWudk7h_o5eipmWSKl/embed?start=true&loop=false&delayms=3000" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <h1>Pablo Sanzo</h1>
+    <nav>
+        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+            <li><a href="#" onclick="showSection('professional')">Professional</a></li>
+            <li><a href="#" onclick="showSection('education')">Education</a></li>
+            <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="professional" class="active">
+        <h2>Professional</h2>
+        <div class="subsection">
+            <h3>Current</h3>
+            <p>Product Manager at <a href="https://maisa.ai/" target="_blank">Maisa</a>, frontier AI lab</p>
+        </div>
+        <div class="subsection">
+            <h3>Next</h3>
+            <p><a href="https://posthog.com/blog/product-engineer-vs-product-manager" target="_blank">Product Engineer</a></p>
+        </div>
+        <div class="subsection">
+            <h3>Past</h3>
+            <p>Product Manager at Amazon</p>
+            <ul>
+                <li>Guided Buying</li>
+                <li>Amazon Fresh</li>
+                <li>Amazon Pantry</li>
+            </ul>
+            <p>Site Merchandiser at Amazon</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="subsection">
+            <h3>Current</h3>
+            <p>GenAI Intensive course at Google</p>
+        </div>
+        <div class="subsection">
+            <h3>Next</h3>
+            <p>Pre-course materials for Fractal Bootcamp</p>
+        </div>
+        <div class="subsection">
+            <h3>Past</h3>
+            <p>Large Language Model Agents course at University of California, Berkeley</p>
+            <p>AI Alignment course at BlueDot (University of Cambridge)</p>
+            <p>B.A. in Business Administration at Universidad de Deusto</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="subsection">
+            <h3>Current</h3>
+            <p>ChatGPT 'Work with Apps' for Chrome</p>
+        </div>
+        <div class="subsection">
+            <h3>Next</h3>
+            <p>xAI 'Grok button' for all websites</p>
+        </div>
+        <div class="subsection">
+            <h3>Past</h3>
+            <p>'Smart Shopping List' (precursor of 'Alexa Shopping List')</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin: 0.5rem 0;">
+                <a href="https://www.linkedin.com/in/pablosanzo/" target="_blank">LinkedIn (in/pablosanzo)</a>
+            </li>
+            <li style="margin: 0.5rem 0;">
+                <a href="https://twitter.com/pablosanzo" target="_blank">Twitter (@pablosanzo)</a>
+            </li>
+            <li style="margin: 0.5rem 0;">
+                <a href="https://github.com/pablosanzo" target="_blank">GitHub (/pablosanzo)</a>
+            </li>
+            <li style="margin: 0.5rem 0;">
+                <a href="mailto:pablosanzo@gmail.com">Gmail (pablosanzo)</a>
+            </li>
+        </ul>
+    </section>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+            }
+            
+            // Update the URL without reloading
+            history.pushState(null, '', `#${sectionId}`);
+            
+            return false; // Prevent default link behavior
+        }
+
+        // Show the section based on URL hash when page loads
+        window.addEventListener('load', () => {
+            // Scroll to top first
+            window.scrollTo(0, 0);
+            
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('professional'); // Default to showing professional section
+            }
+        });
+    </script>
 </body>
 </html>
