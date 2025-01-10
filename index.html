@@ -153,24 +153,25 @@
                 section.classList.add('active');
             }
             
-            // Update the URL without reloading
-            history.pushState(null, '', `#${sectionId}`);
-            
-            return false; // Prevent default link behavior
-        }
+        return false; // Prevent default link behavior
+    }
 
-        // Show the section based on URL hash when page loads
-        window.addEventListener('load', () => {
-            // Scroll to top first
-            window.scrollTo(0, 0);
-            
-            const hash = window.location.hash.substring(1);
-            if (hash) {
-                showSection(hash);
-            } else {
-                showSection('professional'); // Default to showing professional section
-            }
-        });
+    // Show the section based on URL hash when page loads
+    window.addEventListener('load', () => {
+        // Scroll to top first
+        window.scrollTo(0, 0);
+        
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            showSection(hash);
+        } else {
+            // Show professional section without updating URL
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('professional').classList.add('active');
+        }
+    });
     </script>
 </body>
 </html>

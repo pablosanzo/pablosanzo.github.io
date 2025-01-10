@@ -147,7 +147,6 @@
             if (section) {
                 section.classList.add('active');
             }
-            history.pushState(null, '', `#${sectionId}`);
             return false;
         }
 
@@ -157,7 +156,11 @@
             if (hash) {
                 showSection(hash);
             } else {
-                showSection('read');
+                // Show read section without updating URL
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById('read').classList.add('active');
             }
         });
     </script>
