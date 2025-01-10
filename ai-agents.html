@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Sanzo / AI agents</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .favicon {
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+            vertical-align: middle;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 1px;
+        }
+        
+        img[src$="link.png"].favicon {
+            width: 14px;
+            height: 14px;
+            padding: 1px;
+        }
+
+        h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        @media only screen and (max-width: 768px), 
+               only screen and (hover: none) and (pointer: coarse) {
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        section {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <a href="https://pablosanzo.com" style="color: #669de4">Pablo Sanzo</a> / AI agents
+    </h1>
+    <nav>
+        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+            <li><a href="#" onclick="showSection('read')">Read</a></li>
+            <li><a href="#" onclick="showSection('howto')">How-to</a></li>
+            <li><a href="#" onclick="showSection('frameworks')">Frameworks</a></li>
+            <li><a href="#" onclick="showSection('nocode')">No-code</a></li>
+        </ul>
+    </nav>
+    <section id="read" class="active">
+        <h2>Read</h2>
+        <h3>Foundational readings:</h3>
+        <ol>
+            <li>(a16z) RIP to RPA: The Rise of Intelligent Automation <a href="https://a16z.com/rip-to-rpa-the-rise-of-intelligent-automation/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>(A16z) The Messy Inbox Problem: Wedge Strategies in AI Apps <a href="https://a16z.com/the-messy-inbox-problem-ai-apps-wedge-strategies/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>(Foundation Capital) AI leads a service-as-software paradigm shift <a href="https://foundationcapital.com/ai-service-as-software/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>(NFX) The AI Workforce is Here: The Rise of a New Labor Market <a href="https://www.nfx.com/post/ai-workforce-is-here" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+        </ol>
+    </section>
+    <section id="howto">
+        <h2>How-to</h2>
+        <h3>How to build an agent: <a href="https://x.com/AtomSilverman/status/1877507591087206483" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
+        <ol>
+            <li>Identify what to automate</li>
+            <li>Choose Framework / No-code tool / Vertical platform</li>
+            <li>Define evals</li>
+            <li>Build the agent</li>
+            <li>Observe what the agent is doing</li>
+            <li>Deploy the agent</li>
+            <li>Monitor towards the evals</li>
+        </ol>
+    </section>
+    <section id="frameworks">
+        <h2>Frameworks</h2>
+        <h3>Agent frameworks:</h3>
+        <ol>
+            <li>Langchain</li>
+            <li>Autogen (Microsoft)</li>
+            <li>CrewAI</li>
+            <li>Swarm (OpenAI)</li>
+            <li>Smolagents</li>
+        </ol>
+        <h3>Code agent frameworks:</h3>
+        <ol>
+            <li>Smolagents</li>
+            <li>Agentscript</li>
+        </ol>
+        <h3>What does an Agent framework do: <a href="https://x.com/charlespacker/status/1877398183938240530" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
+        <ol>
+            <li>Use programmatically (FastAPI)</li>
+            <li>Enable multi-user and multi-agent (API designs)</li>
+            <li>Don't interfere with main server process (Execution sandbox)</li>
+            <li>Actually persist and don't disappear when the script finishes (Real database)</li>
+            <li>Properly scale the agent server (ORM)</li>
+            <li>Use local LLMs which have less reliable function calling (Extra middleware code)</li>
+            <li>Do RAG (File storage / embedding solution)</li>
+            <li>Handle the long term memory problem and deal with context overflow (Context management system)</li>
+        </ol>
+    </section>
+    <section id="nocode">
+        <h2>No-code</h2>
+        <h3>No-code tools:</h3>
+        <ol>
+            <li>Vertex AI Agent Builder (Google)</li>
+            <li>Copilot Studio (Microsoft)</li>
+            <li>AgentForce (Salesforce)</li>
+            <li>Watson/Bee (IBM)</li>
+        </ol>
+        <h3>No-code tools with API deployment:</h3>
+        <ol>
+            <li>Wordware</li>
+            <li>Relevance</li>
+            <li>Flowise (self-hosted)</li>
+            <li>Langflow</li>
+        </ol>
+    </section>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+            }
+            history.pushState(null, '', `#${sectionId}`);
+            return false;
+        }
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('read');
+            }
+        });
+    </script>
+</body>
+</html>
