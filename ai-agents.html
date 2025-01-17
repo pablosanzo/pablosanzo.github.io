@@ -65,17 +65,14 @@
     </h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#" onclick="showSection('read')">Read</a></li>
             <li><a href="#" onclick="showSection('examples')">Examples</a></li>
-            <li><a href="#" onclick="showSection('howto')">How-to</a></li>
+            <li><a href="#" onclick="showSection('definitions')">Definitions</a></li>
             <li><a href="#" onclick="showSection('frameworks')">Frameworks</a></li>
-            <li><a href="#" onclick="showSection('nocode')">No-code</a></li>
         </ul>
     </nav>
     
-    <section id="read" class="active">
-        <h2>Read</h2>
-        <h3>Definitions:</h3>
+    <section id="definitions" class="active">
+        <h2>Definitions</h2>
         <ol>
             <li>What are AI agents? (IBM, Jul-2024) <a href="https://www.youtube.com/watch?v=F8NKVhkZZWI" target="_blank"><img src="icons/link.png" class="favicon"></a>
                 <ul>
@@ -97,121 +94,35 @@
                     <li style="color: #808080">"AI is the brain that processes, plans, and determines whether a task has been accomplished"</li>
                 </ul>
             </li>
-            
+            <li>Introducing ambient agents (Langchain, Jan-2025) <a href="https://blog.langchain.dev/introducing-ambient-agents/" target="_blank"><img src="icons/link.png" class="favicon"></a>
+                <ul>
+                    <li style="color: #808080">"Ambient agents listen to an event stream and act on it accordingly, potentially acting on multiple events at a time"</li>
+                </ul>
+            </li>
         </ol>
-        <h3>VC narratives:</h3>
-        <ol>
-            <li>(a16z) RIP to RPA: The Rise of Intelligent Automation <a href="https://a16z.com/rip-to-rpa-the-rise-of-intelligent-automation/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>(A16z) The Messy Inbox Problem: Wedge Strategies in AI Apps <a href="https://a16z.com/the-messy-inbox-problem-ai-apps-wedge-strategies/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>(Foundation Capital) AI leads a service-as-software paradigm shift <a href="https://foundationcapital.com/ai-service-as-software/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>(NFX) The AI Workforce is Here: The Rise of a New Labor Market <a href="https://www.nfx.com/post/ai-workforce-is-here" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>(Sequoia) Why 2025 Will Be The Year of AI Agents <a href="https://www.youtube.com/watch?v=kHPXbo2OkzA" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-        </ol>
-    </section>
-
-    <section id="howto">
-        <h2>How-to</h2>
-        <h3>How to build an agent: <a href="https://x.com/AtomSilverman/status/1877507591087206483" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
-        <ol>
-            <li>Identify what to automate</li>
-            <li>Choose Framework / No-code tool / Vertical platform</li>
-            <li>Define evals</li>
-            <li>Build the agent</li>
-            <li>Observe what the agent is doing</li>
-            <li>Deploy the agent</li>
-            <li>Monitor towards the evals</li>
-        </ol>
-        <img src="images/1736178153475.jpeg" style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 1px; margin-top: 1rem;" width="75%" height="75%">
     </section>
 
     <section id="examples">
         <h2>Examples</h2>
-        
-        <h3>With framework: <a href="https://www.llamaindex.ai/blog/introducing-agentic-document-workflows" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
-        <ul>
-            <li>Contract Review</li>
-            <li>Patient Case Summary</li>
-            <li>Invoice Processing</li>
-            <li>Invoice Unit Standardization</li>
-            <li>Invoice + SKU Matching</li>
-            <li>Auto Insurance Claims</li>
-        </ul>
-        
-        <h3>With no-code tools:</h3>
-        <ul>
-            <li>Competitor Ad Analysis <a href="https://x.com/MaxBrodeurUrbas/status/1868722762346643860?ref=blog.gumloop.com" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Email Invoice Processing <a href="https://x.com/MaxBrodeurUrbas/status/1856039187243511880?ref=blog.gumloop.com" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>LinkedIn Outbound <a href="https://x.com/MaxBrodeurUrbas/status/1838272090522423673?ref=blog.gumloop.com" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Video to Blog Generation <a href="https://x.com/MaxBrodeurUrbas/status/1798055536208015704?ref=blog.gumloop.com" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Calendar/Customer Research <a href="https://x.com/MaxBrodeurUrbas/status/1805654690039799957?ref=blog.gumloop.com" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-        </ul>
+        <ol>
+            <li>Social media agent (Langchain, Jan-2025) <a href="https://github.com/langchain-ai/social-media-agent" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>Real-time voice agent (OpenAI, Jan-2025) <a href="https://github.com/openai/openai-realtime-agents" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>Agentic document workflows (LlamaIndex, Jan-2025) <a href="https://www.llamaindex.ai/blog/introducing-agentic-document-workflows" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+        </ol>
     </section>
 
-    <section id="howto">
-        <h2>How-to</h2>
-        <h3>How to build an agent: <a href="https://x.com/AtomSilverman/status/1877507591087206483" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
-        <ol>
-            <li>Identify what to automate</li>
-            <li>Choose Framework / No-code tool / Vertical platform</li>
-            <li>Define evals</li>
-            <li>Build the agent</li>
-            <li>Observe what the agent is doing</li>
-            <li>Deploy the agent</li>
-            <li>Monitor towards the evals</li>
-        </ol>
-    </section>
     <section id="frameworks">
         <h2>Frameworks</h2>
-        <h3>Agent frameworks:</h3>
-            <li>AutoGPT <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Langchain <a href="https://github.com/langchain-ai/langchain" target="_blank"><img src="icons/link.png" class="favicon"></a> <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Autogen (Microsoft) <a href="https://github.com/microsoft/autogen" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+        <ol>
+            <li>Pydantic <a href="https://github.com/pydantic/pydantic" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
             <li>CrewAI <a href="https://github.com/crewAIInc/crewAI" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Swarm (OpenAI) <a href="https://github.com/openai/swarm" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Phidata <a href="https://www.phidata.com/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>Langchain <a href="https://github.com/langchain-ai/langchain" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>Autogen <a href="https://github.com/microsoft/autogen" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
+            <li>AG2 <a href="https://github.com/ag2ai/ag2" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
         </ol>
-        <h3>Code agent frameworks:</h3>
-        <ol>
-            <li>Smolagents <a href="https://github.com/huggingface/smolagents" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Agentscript <a href="https://github.com/AgentScript-AI/agentscript" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-        </ol>
-        <a href="https://star-history.com/#Significant-Gravitas/AutoGPT&langchain-ai/langchain&microsoft/autogen&crewAIInc/crewAI&openai/swarm&huggingface/smolagents&Date" target="_blank">
-            <img src="images/star-history-2025112.png" style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 1px; margin-top: 1rem;" width="75%" height="75%">
+        <a href="https://x.com/braelyn_ai/status/1874984378993889630" target="_blank">
+            <img src="images/agent-frameworks.jpeg" style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 1px; margin-top: 1rem;" width="75%" height="75%">
         </a>
-        <h3>What does an Agent framework do: <a href="https://x.com/charlespacker/status/1877398183938240530" target="_blank"><img src="icons/link.png" class="favicon"></a></h3>
-        <ol>
-            <li>Use programmatically (FastAPI)</li>
-            <li>Enable multi-user and multi-agent (API designs)</li>
-            <li>Don't interfere with main server process (Execution sandbox)</li>
-            <li>Actually persist and don't disappear when the script finishes (Real database)</li>
-            <li>Properly scale the agent server (ORM)</li>
-            <li>Use local LLMs which have less reliable function calling (Extra middleware code)</li>
-            <li>Do RAG (File storage / embedding solution)</li>
-            <li>Handle the long term memory problem and deal with context overflow (Context management system)</li>
-        </ol>
-    </section>
-    <section id="nocode">
-        <h2>No-code</h2>
-        <h3>No-code tools:</h3>
-        <ol>
-            <li>Vertex AI Agent Builder (Google) <a href="https://cloud.google.com/products/agent-builder" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Copilot Studio (Microsoft) <a href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>AgentForce (Salesforce) <a href="https://www.salesforce.com/agentforce/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Watson/Bee (IBM) <a href="https://iambee.ai/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Chipp <a href="https://www.chipp.ai/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Beam <a href="https://beam.ai/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-        </ol>
-        <h3>No-code tools with API deployment:</h3>
-        <ol>
-            <li>Gumloop <a href="https://www.gumloop.com/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Wordware <a href="https://www.wordware.ai/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Relevance <a href="https://relevanceai.com/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Flowise (self-hosted) <a href="https://flowiseai.com/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Langflow <a href="https://www.langflow.org/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>n8n <a href="https://n8n.io/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Dust <a href="https://dust.tt/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-            <li>Mindstudio <a href="https://www.mindstudio.ai/" target="_blank"><img src="icons/link.png" class="favicon"></a></li>
-        </ol>
     </section>
     <script>
         function showSection(sectionId) {
@@ -235,7 +146,7 @@
                 document.querySelectorAll('section').forEach(section => {
                     section.classList.remove('active');
                 });
-                document.getElementById('read').classList.add('active');
+                document.getElementById('examples').classList.add('active');
             }
         });
     </script>
