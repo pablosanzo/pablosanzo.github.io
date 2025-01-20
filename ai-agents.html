@@ -36,23 +36,19 @@
             text-decoration: none;
         }
 
-        /* General link styling */
         a:link, a:visited {
             color: #0000EE;
         }
         
-        /* Menu link styling */
         nav ul li a {
             text-decoration: underline;
         }
 
-        /* Default desktop styles */
         nav ul li {
             display: inline-block;
             margin-right: 1rem;
         }
 
-        /* Special h1 link styling */
         h1 a,
         h1 a:link,
         h1 a:visited {
@@ -60,7 +56,6 @@
             text-decoration: none;
         }
 
-        /* Mobile styles */
         @media only screen and (max-width: 768px), 
                only screen and (hover: none) and (pointer: coarse) {
             nav ul li {
@@ -70,12 +65,24 @@
         }
 
         section {
-            display: none;
             margin-top: 2rem;
+            display: none;
         }
         
-        section.active {
+        /* Show Examples by default when no section is targeted */
+        body:not(:has(:target)) #examples {
             display: block;
+        }
+        
+        /* When a section is targeted, show only that section */
+        :target {
+            display: block;
+        }
+        
+        /* Hide all other sections when any section is targeted */
+        :target ~ section,
+        section:not(:target) {
+            display: none;
         }
     </style>
 </head>
@@ -85,13 +92,13 @@
     </h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#" onclick="event.preventDefault(); showSection('examples')">Examples</a></li>
-            <li><a href="#" onclick="event.preventDefault(); showSection('definitions')">Definitions</a></li>
-            <li><a href="#" onclick="event.preventDefault(); showSection('frameworks')">Frameworks</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#definitions">Definitions</a></li>
+            <li><a href="#frameworks">Frameworks</a></li>
         </ul>
     </nav>
     
-    <section id="definitions" class="active">
+    <section id="definitions">
         <h2>Definitions</h2>
         <ol>
             <li>What are AI agents? (IBM, Jul-2024) <a href="https://www.youtube.com/watch?v=F8NKVhkZZWI" target="_blank"><img src="icons/link.png" class="favicon"></a>
@@ -145,43 +152,5 @@
             <img src="images/agent-frameworks.jpeg" style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 1px; margin-top: 1rem;" width="75%" height="75%">
         </a>
     </section>
-    <script>
-        function showSection(sectionId, updateHash = true) {
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.classList.add('active');
-                if (updateHash) {
-                    window.location.hash = sectionId;
-                }
-            }
-            return false;
-        }
-
-        function handleHashChange() {
-            const hash = window.location.hash.substring(1);
-            if (hash) {
-                showSection(hash, false);
-            } else {
-                showSection('examples', false);
-            }
-        }
-
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 0);
-            // Hide all sections initially
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show section based on hash or default to examples
-            const hash = window.location.hash.substring(1);
-            const defaultSection = hash || 'examples';
-            showSection(defaultSection, false);
-        });
-
-        window.addEventListener('hashchange', handleHashChange);
-    </script>
 </body>
 </html>
