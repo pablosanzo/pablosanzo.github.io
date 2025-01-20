@@ -36,11 +36,31 @@
             text-decoration: none;
         }
 
+        /* General link styling */
+        a:link, a:visited {
+            color: #0000EE;
+        }
+        
+        /* Menu link styling */
+        nav ul li a {
+            text-decoration: underline;
+        }
+
+        /* Default desktop styles */
         nav ul li {
             display: inline-block;
             margin-right: 1rem;
         }
 
+        /* Special h1 link styling */
+        h1 a,
+        h1 a:link,
+        h1 a:visited {
+            color: #669de4 !important;
+            text-decoration: none;
+        }
+
+        /* Mobile styles */
         @media only screen and (max-width: 768px), 
                only screen and (hover: none) and (pointer: coarse) {
             nav ul li {
