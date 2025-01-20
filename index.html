@@ -70,10 +70,10 @@
     <h1>Pablo Sanzo</h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#" onclick="showSection('professional')">Professional</a></li>
-            <li><a href="#" onclick="showSection('education')">Education</a></li>
-            <li><a href="#" onclick="showSection('projects')">Projects</a></li>
-            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('professional')">Professional</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('education')">Education</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('projects')">Projects</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('contact')">Contact</a></li>
         </ul>
     </nav>
     <section id="professional" class="active">
@@ -157,37 +157,42 @@
         </ul>
     </section>
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
+        function showSection(sectionId, updateHash = true) {
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Show the selected section
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
+                if (updateHash) {
+                    window.location.hash = sectionId;
+                }
             }
-            
-        return false; // Prevent default link behavior
-    }
+            return false;
+        }
 
-    // Show the section based on URL hash when page loads
-    window.addEventListener('load', () => {
-        // Scroll to top first
-        window.scrollTo(0, 0);
-        
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            showSection(hash);
-        } else {
-            // Show professional section without updating URL
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash, false);
+            } else {
+                showSection('professional', false);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            // Hide all sections initially
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById('professional').classList.add('active');
-        }
-    });
+            // Show section based on hash or default to professional
+            const hash = window.location.hash.substring(1);
+            const defaultSection = hash || 'professional';
+            showSection(defaultSection, false);
+        });
+
+        window.addEventListener('hashchange', handleHashChange);
     </script>
 </body>
 </html>

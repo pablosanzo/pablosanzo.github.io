@@ -85,9 +85,9 @@
     </h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#" onclick="showSection('examples')">Examples</a></li>
-            <li><a href="#" onclick="showSection('definitions')">Definitions</a></li>
-            <li><a href="#" onclick="showSection('frameworks')">Frameworks</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('examples')">Examples</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('definitions')">Definitions</a></li>
+            <li><a href="#" onclick="event.preventDefault(); showSection('frameworks')">Frameworks</a></li>
         </ul>
     </nav>
     
@@ -146,14 +146,16 @@
         </a>
     </section>
     <script>
-        function showSection(sectionId) {
+        function showSection(sectionId, updateHash = true) {
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
-                window.location.hash = sectionId;
+                if (updateHash) {
+                    window.location.hash = sectionId;
+                }
             }
             return false;
         }
@@ -161,13 +163,22 @@
         function handleHashChange() {
             const hash = window.location.hash.substring(1);
             if (hash) {
-                showSection(hash);
+                showSection(hash, false);
+            } else {
+                showSection('examples', false);
             }
         }
 
         window.addEventListener('load', () => {
             window.scrollTo(0, 0);
-            handleHashChange();
+            // Hide all sections initially
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show section based on hash or default to examples
+            const hash = window.location.hash.substring(1);
+            const defaultSection = hash || 'examples';
+            showSection(defaultSection, false);
         });
 
         window.addEventListener('hashchange', handleHashChange);
