@@ -178,7 +178,11 @@
         <h2>Classifications</h2>
         <ol>
             <li>By how they are <u>BUILT</u>: Code (or Framework) vs. Assisted Code (Chat) vs. No-code (UI)</li>
-            <li>By <u>APPROACH</u>: Graph (e.g. LangGraph; <strong><u>Workflows</u></strong>) vs. Objective (e.g. Smolagents; actual <strong><u>Agents</u></strong>)</li>
+            <li>By <u>APPROACH</u>: Graph (agent controls <i>some</i> of the logic) vs. Objective (agent controls <i>all of</i> the logic)</li>
+            <ul>
+                <li style="color: #808080">Not all graphs are agents; LLM must control some of the logic</li>
+                <li style="color: #808080">A Graph can wrap an Objective agent; the Graph is thus an agent</li>
+            </ul>
             <li>By how they are <u>USED</u>: Code (or API) vs. UI</li>
             <li>By how they <u>REASON</u>: in Language vs. in Code (e.g. Smolagents CodeAgent)</li>
             <li>By how they are <u>TRIGGERED</u>: Reactive (when called) vs. Proactive (Ambien agents)</li>
