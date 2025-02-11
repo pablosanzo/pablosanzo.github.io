@@ -220,8 +220,14 @@
                 });
             });
 
-            // Show initial section
-            showSection('examples');
+            // Check if there's a hash in the URL
+            const hash = window.location.hash.slice(1);
+            if (hash && document.getElementById(hash.toLowerCase())) {
+                showSection(hash);
+            } else {
+                // Show default section if no hash or invalid hash
+                showSection('Examples');
+            }
         });
 
         function showSection(sectionId) {
@@ -231,11 +237,23 @@
             });
             
             // Show requested section
-            const targetSection = document.getElementById(sectionId);
+            const targetSection = document.getElementById(sectionId.toLowerCase());
             if (targetSection) {
                 targetSection.style.display = 'block';
+                // Update URL hash
+                history.pushState(null, '', `#${sectionId}`);
             }
         }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash && document.getElementById(hash.toLowerCase())) {
+                showSection(hash);
+            } else {
+                showSection('Examples');
+            }
+        });
     </script>
 </body>
 </html>

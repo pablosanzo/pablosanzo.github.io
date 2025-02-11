@@ -70,10 +70,10 @@
     <h1>Pablo Sanzo</h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#" onclick="event.preventDefault(); showSection('professional')">Professional</a></li>
-            <li><a href="#" onclick="event.preventDefault(); showSection('education')">Education</a></li>
-            <li><a href="#" onclick="event.preventDefault(); showSection('projects')">Projects</a></li>
-            <li><a href="#" onclick="event.preventDefault(); showSection('contact')">Contact</a></li>
+            <li><a href="#Professional" onclick="showSection('professional')">Professional</a></li>
+            <li><a href="#Education" onclick="showSection('education')">Education</a></li>
+            <li><a href="#Projects" onclick="showSection('projects')">Projects</a></li>
+            <li><a href="#Contact" onclick="showSection('contact')">Contact</a></li>
         </ul>
     </nav>
     <section id="professional" class="active">
@@ -164,13 +164,32 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
+                // Update URL hash with capitalized section name
+                const capitalizedId = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                history.pushState(null, '', `#${capitalizedId}`);
             }
             return false;
         }
 
         window.addEventListener('load', () => {
-            // Show default section
-            showSection('professional');
+            // Check if there's a hash in the URL
+            const hash = window.location.hash.slice(1).toLowerCase();
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            } else {
+                // Show default section if no hash or invalid hash
+                showSection('professional');
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.slice(1).toLowerCase();
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            } else {
+                showSection('professional');
+            }
         });
     </script>
 </body>
