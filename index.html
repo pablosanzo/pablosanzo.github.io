@@ -157,16 +157,18 @@
         </ul>
     </section>
     <script>
-        function showSection(sectionId) {
+        function showSection(sectionId, skipUrlUpdate = false) {
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
-                // Update URL hash with capitalized section name
-                const capitalizedId = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
-                history.pushState(null, '', `#${capitalizedId}`);
+                // Update URL hash with capitalized section name only if not skipping URL update
+                if (!skipUrlUpdate) {
+                    const capitalizedId = sectionId.charAt(0).toUpperCase() + sectionId.slice(1).toLowerCase();
+                    history.pushState(null, '', `#${capitalizedId}`);
+                }
             }
             return false;
         }
@@ -175,10 +177,10 @@
             // Check if there's a hash in the URL
             const hash = window.location.hash.slice(1).toLowerCase();
             if (hash && document.getElementById(hash)) {
-                showSection(hash);
+                showSection(hash, true); // Pass true to skip URL update
             } else {
                 // Show default section if no hash or invalid hash
-                showSection('professional');
+                showSection('professional', true); // Pass true to skip URL update
             }
         });
 
@@ -186,9 +188,9 @@
         window.addEventListener('popstate', () => {
             const hash = window.location.hash.slice(1).toLowerCase();
             if (hash && document.getElementById(hash)) {
-                showSection(hash);
+                showSection(hash, true); // Pass true to skip URL update
             } else {
-                showSection('professional');
+                showSection('professional', true); // Pass true to skip URL update
             }
         });
     </script>

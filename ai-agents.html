@@ -80,9 +80,9 @@
     </h1>
     <nav>
         <ul style="list-style: none; padding: 0; margin: 1rem 0;">
-            <li><a href="#examples">Examples</a></li>
-            <li><a href="#definitions">Definitions</a></li>
-            <li><a href="#classifications">Classifications</a></li>
+            <li><a href="#Examples">Examples</a></li>
+            <li><a href="#Definitions">Definitions</a></li>
+            <li><a href="#Classifications">Classifications</a></li>
         </ul>
     </nav>
     
@@ -223,14 +223,14 @@
             // Check if there's a hash in the URL
             const hash = window.location.hash.slice(1);
             if (hash && document.getElementById(hash.toLowerCase())) {
-                showSection(hash);
+                showSection(hash, true); // Pass true to skip URL update
             } else {
                 // Show default section if no hash or invalid hash
-                showSection('Examples');
+                showSection('Examples', true); // Pass true to skip URL update
             }
         });
 
-        function showSection(sectionId) {
+        function showSection(sectionId, skipUrlUpdate = false) {
             // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.style.display = 'none';
@@ -240,8 +240,10 @@
             const targetSection = document.getElementById(sectionId.toLowerCase());
             if (targetSection) {
                 targetSection.style.display = 'block';
-                // Update URL hash
-                history.pushState(null, '', `#${sectionId}`);
+                // Update URL hash with proper capitalization only if not skipping URL update
+                if (!skipUrlUpdate) {
+                    history.pushState(null, '', `#${sectionId}`);
+                }
             }
         }
 
@@ -249,9 +251,9 @@
         window.addEventListener('popstate', () => {
             const hash = window.location.hash.slice(1);
             if (hash && document.getElementById(hash.toLowerCase())) {
-                showSection(hash);
+                showSection(hash, true); // Pass true to skip URL update
             } else {
-                showSection('Examples');
+                showSection('Examples', true); // Pass true to skip URL update
             }
         });
     </script>
