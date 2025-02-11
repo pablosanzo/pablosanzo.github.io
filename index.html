@@ -184,7 +184,6 @@
         }
 
         window.addEventListener('load', () => {
-            window.scrollTo(0, 0);
             // Hide all sections initially
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
@@ -196,6 +195,10 @@
         });
 
         window.addEventListener('hashchange', handleHashChange);
+        // Prevent default scroll behavior on hash change
+        window.addEventListener('hashchange', () => {
+            window.scrollTo(0, 0);
+        });
     </script>
 </body>
 </html>
