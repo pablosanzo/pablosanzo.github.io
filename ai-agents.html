@@ -69,20 +69,8 @@
             display: none;
         }
         
-        /* Show Examples by default when no section is targeted */
-        body:not(:has(:target)) #examples {
+        #examples {
             display: block;
-        }
-        
-        /* When a section is targeted, show only that section */
-        :target {
-            display: block;
-        }
-        
-        /* Hide all other sections when any section is targeted */
-        :target ~ section,
-        section:not(:target) {
-            display: none;
         }
     </style>
 </head>
@@ -221,5 +209,33 @@
             <li>By how they are <u>SOLD</u>: Ad-hoc automation vs. Productized agent</li>
         </ol>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle nav link clicks
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+
+            // Show initial section
+            showSection('examples');
+        });
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show requested section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -160,44 +160,20 @@
         </ul>
     </section>
     <script>
-        function showSection(sectionId, updateHash = true) {
+        function showSection(sectionId) {
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             const section = document.getElementById(sectionId);
             if (section) {
                 section.classList.add('active');
-                if (updateHash) {
-                    window.location.hash = sectionId;
-                }
             }
             return false;
         }
 
-        function handleHashChange() {
-            const hash = window.location.hash.substring(1);
-            if (hash) {
-                showSection(hash, false);
-            } else {
-                showSection('professional', false);
-            }
-        }
-
         window.addEventListener('load', () => {
-            // Hide all sections initially
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show section based on hash or default to professional
-            const hash = window.location.hash.substring(1);
-            const defaultSection = hash || 'professional';
-            showSection(defaultSection, false);
-        });
-
-        window.addEventListener('hashchange', handleHashChange);
-        // Prevent default scroll behavior on hash change
-        window.addEventListener('hashchange', () => {
-            window.scrollTo(0, 0);
+            // Show default section
+            showSection('professional');
         });
     </script>
 </body>
