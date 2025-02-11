@@ -88,6 +88,21 @@
     
     <section id="definitions">
         <h2>Definitions</h2>
+        <h3>"Software where LLM is in charge of the control logic"</h3>
+        <ol>
+            <li>Building effective agents (Anthropic, Dec-2024) <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank"><img src="icons/link.png" class="favicon"></a>
+                <ul>
+                    <li style="color: #808080">"Workflows are systems where LLMs and tools are orchestrated through predefined code paths"</li>
+                </ul>
+                <ul>
+                    <li style="color: #808080">"Agents are systems where LLMs dynamically direct their own processes and tool usage"</li>
+                </ul>
+                <ul>
+                    <li style="color: #808080">"Workflows & Agents = Agentic systems"</li>
+                </ul>
+            </li>
+        </ol>
+        <h3>"Software where LLM is in charge of <i><u>some</u></i> of the control logic"</h3>
         <ol>
             <li>Introduction to Operator & Agents (OpenAI, Jan-2025) <a href="https://www.youtube.com/watch?v=CSE77wAdDLg" target="_blank"><img src="icons/link.png" class="favicon"></a>
                 <ul>
@@ -105,30 +120,6 @@
                 </ul>
                 <ul>
                     <li style="color: #808080">"Spectrum as you give more or less power to the LLM on your workflow"</li>
-                </ul>
-            </li>
-            <li>Building effective agents (Anthropic, Dec-2024) <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank"><img src="icons/link.png" class="favicon"></a>
-                <ul>
-                    <li style="color: #808080">"Workflows are systems where LLMs and tools are orchestrated through predefined code paths"</li>
-                </ul>
-                <ul>
-                    <li style="color: #808080">"Agents are systems where LLMs dynamically direct their own processes and tool usage"</li>
-                </ul>
-                <ul>
-                    <li style="color: #808080">"Workflows & Agents = Agentic systems"</li>
-                </ul>
-            </li>
-            <li>Agents (Chip Huyen, Jan-2025) <a href="https://huyenchip.com/2025/01/07/agents.html" target="_blank"><img src="icons/link.png" class="favicon"></a>
-                <ul>
-                    <li style="color: #808080">"AI is the brain that processes, plans, and determines whether a task has been accomplished"</li>
-                </ul>
-            </li>
-            <li>Introducing ambient agents (Langchain, Jan-2025) <a href="https://blog.langchain.dev/introducing-ambient-agents/" target="_blank"><img src="icons/link.png" class="favicon"></a>
-                <ul>
-                    <li style="color: #808080">"Agents that respond to ambient signals and demand user input only when needed"</li>
-                </ul>
-                <ul>
-                    <li style="color: #808080">"Ambient agents listen to an event stream and act on it accordingly"</li>
                 </ul>
             </li>
         </ol>
@@ -192,21 +183,22 @@
     <section id="classifications">
         <h2>Classifications</h2>
         <ol>
-            <li>By how they are <u>BUILT</u>: Code (or Framework) vs. Assisted Code (Chat) vs. No-code (UI)</li>
-            <li>By <u>APPROACH</u>: Graph (agent controls <i>some</i> of the logic) vs. Objective (agent controls <i>all of</i> the logic)</li>
+            <li>By how they are <b><u>BUILT</u></b>: Code (or Framework) vs. Assisted Code (Chat) vs. No-code (UI)</li>
+            <li>By <b><u>APPROACH</u></b>: Graph (agent controls <i>some</i> of the logic) vs. Objective (agent controls <i>all of</i> the logic)</li>
             <ul>
                 <li style="color: #808080">Not all graphs are agents; in agents LLM must control <i>at least some</i> of the logic</li>
             </ul>
-            <li>By how they are <u>USED</u>: Code (or API) vs. UI</li>
-            <li>By how they <u>REASON</u>: in Language vs. in Code (e.g. Smolagents CodeAgent)</li>
-            <li>By how they are <u>TRIGGERED</u>: Reactive (when called) vs. Proactive (Ambient agents)</li>
-            <li>By their <u>AMBITION</u>: Automate something we were already doing vs. Explore doing something new</li>
-            <li>By their <u>TARGET</u>: B2B (Enterprise vs. SMB; vertical by industry or function) vs. B2C (Consumer)</li>
+            <li>By how they are <b><u>USED</u></b>: Code (or API) vs. UI</li>
+            <li>By how they <b><u>REASON</u></b>: in Language vs. in Code (e.g. Smolagents CodeAgent)</li>
+            <li>By how they are <b><u>TRIGGERED</u></b>: Reactive (when called) vs. Proactive (e.g. LangGraph Ambient Agents)</li>
+            <li>By their <b><u>AMBITION</u></b>: Automate something we were already doing vs. Explore doing something new</li>
+            <li>By their <b><u>MARKET</u></b>: B2B (Enterprise; SMB) vs. B2C (Consumer)</li>
+            <li>By their <b><u>TARGET</u></b>: Vertical (one function e.g. Cursor) vs. Horizontal (across functions e.g. Ottogrid)</li>
             <ul>
-                <li style="color: #808080">There are no <i>horizontal agents</i>; there are <i>horizontal tools and services</i> to build agents</li>
+                <li style="color: #808080">Open to debate where to draw the line</li>
             </ul>
-            <li>By <u>INTERACTION MODEL</u>: One-off vs. Iterative (Chat)</li>
-            <li>By how they are <u>SOLD</u>: Ad-hoc automation vs. Productized agent</li>
+            <li>By <b><u>INTERACTION MODEL</u></b>: One-off vs. Iterative (Chat)</li>
+            <li>By how they are <b><u>SOLD</u></b>: Ad-hoc automation vs. Productized agent</li>
         </ol>
     </section>
     <script>
